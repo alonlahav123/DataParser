@@ -1,8 +1,10 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Utils {
+
     public static String readFileAsString(String filepath) {
         StringBuilder output = new StringBuilder();
 
@@ -17,5 +19,9 @@ public class Utils {
         }
 
         return output.toString();
+    }
+
+    public static ArrayList<ElectionResult> parse2016ElectionResults(String data) {
+        ArrayList<ElectionResult> results = new ArrayList<>();
     }
 }
