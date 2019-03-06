@@ -1,21 +1,21 @@
 public class ElectionResult {
-    private static int votes_dem,votes_gop,total_votes,per_dem,per_gop,diff,per_point_diff,combined_fips;
+    private static double votes_dem,votes_gop,total_votes,per_dem,per_gop,diff,per_point_diff,combined_fips;
     private static String county_name, state_abbr;
 
     public ElectionResult(String votes_dem, String votes_gop,String total_votes, String per_dem, String per_gop, String diff, String per_point_diff, String state_abbr, String county_name, String combined_fips) {
-        this.votes_dem = Integer.parseInt(votes_dem);
-        this.votes_gop = Integer.parseInt(votes_gop);
-        this.total_votes = Integer.parseInt(total_votes);
-        this.per_dem = Integer.parseInt(per_dem);
-        this.per_gop = Integer.parseInt(per_gop);
-        this.diff = takeOutQuotes(diff);
+        this.votes_dem = Double.parseDouble(votes_dem);
+        this.votes_gop = Double.parseDouble(votes_gop);
+        this.total_votes = Double.parseDouble(total_votes);
+        this.per_dem = Double.parseDouble(per_dem);
+        this.per_gop = Double.parseDouble(per_gop);
+        this.diff = Double.parseDouble(diff);
         this.per_point_diff = takeOutPercent(per_point_diff);
         this.state_abbr = state_abbr;
         this.county_name = county_name;
-        this.combined_fips = Integer.parseInt(combined_fips);
+        this.combined_fips = Double.parseDouble(combined_fips);
     }
 
-    public static int getVotes_dem() {
+    public static double getVotes_dem() {
         return votes_dem;
     }
 
@@ -23,7 +23,7 @@ public class ElectionResult {
         ElectionResult.votes_dem = votes_dem;
     }
 
-    public static int getVotes_gop() {
+    public static double getVotes_gop() {
         return votes_gop;
     }
 
@@ -31,7 +31,7 @@ public class ElectionResult {
         ElectionResult.votes_gop = votes_gop;
     }
 
-    public static int getTotal_votes() {
+    public static double getTotal_votes() {
         return total_votes;
     }
 
@@ -39,7 +39,7 @@ public class ElectionResult {
         ElectionResult.total_votes = total_votes;
     }
 
-    public static int getPer_dem() {
+    public static double getPer_dem() {
         return per_dem;
     }
 
@@ -47,7 +47,7 @@ public class ElectionResult {
         ElectionResult.per_dem = per_dem;
     }
 
-    public static int getPer_gop() {
+    public static double getPer_gop() {
         return per_gop;
     }
 
@@ -55,7 +55,7 @@ public class ElectionResult {
         ElectionResult.per_gop = per_gop;
     }
 
-    public static int getDiff() {
+    public static double getDiff() {
         return diff;
     }
 
@@ -63,7 +63,7 @@ public class ElectionResult {
         ElectionResult.diff = diff;
     }
 
-    public static int getPer_point_diff() {
+    public static double getPer_point_diff() {
         return per_point_diff;
     }
 
@@ -71,7 +71,7 @@ public class ElectionResult {
         ElectionResult.per_point_diff = per_point_diff;
     }
 
-    public static int getCombined_fips() {
+    public static double getCombined_fips() {
         return combined_fips;
     }
 
@@ -95,16 +95,16 @@ public class ElectionResult {
         ElectionResult.state_abbr = state_abbr;
     }
 
-    private int takeOutQuotes(String diff) {
+    private double takeOutQuotes(String diff) {
         String withoutPercent = diff.substring(1, diff.length()-1);
 
-        return Integer.parseInt(withoutPercent);
+        return Double.parseDouble(withoutPercent);
     }
 
-    private int takeOutPercent(String per_point_diff) {
+    private double takeOutPercent(String per_point_diff) {
         String withoutPercent = per_point_diff.substring(0, per_point_diff.length()-1);
 
-        return Integer.parseInt(withoutPercent);
+        return Double.parseDouble(withoutPercent);
     }
 
     public String toString() {
