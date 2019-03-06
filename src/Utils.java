@@ -25,18 +25,16 @@ public class Utils {
         ArrayList<ElectionResult> results = new ArrayList<>();
         String[] lines = data.split("\n");
 
+        String line;
         for(int i = 1; i < lines.length; i++) {
-            String line = lines[i];
-            ElectionResult d;
+            line = lines[i];
 
-            if(line.indexOf("\"") == -1 ) {
-                d = getDataPoint(line);
-            } else {
-                String newLine = removeQuotations(line);
-                d = getDataPoint(newLine);
+            if(line.contains("\"")) {
+                line = removeQuotations(line);
             }
+            results.add(getDataPoint(line));
 
-            results.add(d);
+            System.out.println(results.get(i-1));
         }
 
         return results;
