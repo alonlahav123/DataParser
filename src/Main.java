@@ -18,5 +18,9 @@ public class Main {
         for(int i = 0; i < results.size(); i++) {
             System.out.println(i + " ------> 5" + results.get(i));
         }
+
+        DataManager main = new DataManager();
+
+
     }
 }
