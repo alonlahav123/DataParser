@@ -95,21 +95,16 @@ public class ElectionResult {
         this.state_abbr = state_abbr;
     }
 
-    private double takeOutQuotes(String diff) {
-        String withoutPercent = diff.substring(1, diff.length()-1);
-
-        return Double.parseDouble(withoutPercent);
-    }
-
     private double takeOutPercent(String per_point_diff) {
         String withoutPercent = per_point_diff.substring(0, per_point_diff.length()-1);
 
         return Double.parseDouble(withoutPercent);
     }
 
+
     public String toString() {
-        return votes_dem + " , " + votes_gop + " , " + total_votes + " , " + per_dem + " , " + per_gop + " , " +
-                diff + " , " + per_point_diff + " , " + state_abbr + " , " + county_name + " , " + combined_fips;
+        return this.getVotes_dem() + " , " + votes_gop + " , " + total_votes + " , " + per_dem + " , " + per_gop + " , " +
+                diff + " , " + per_point_diff + " , " + state_abbr + " , " + this.getCounty_name() + " , " + combined_fips;
     }
 
 }

@@ -1,5 +1,3 @@
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 import java.util.ArrayList;
 
 /***
@@ -10,13 +8,15 @@ public class Main {
     public static void main(String[] args) {
         // test of utils
 
-        String data = Utils.readFileAsString("data/2016_Presidential_Results.csv");
+        String dataElec = Utils.readFileAsString("data/2016_Presidential_Results.csv");
+        String dataEduc = Utils.readFileAsString("data/Education.csv");
         //System.out.println(data);
 
-        ArrayList<ElectionResult> results = Utils.parse2016ElectionResults(data);
+        ArrayList<ElectionResult> resultsElec = Utils.parse2016ElectionResults(dataElec);
+        ArrayList<EducationResult> resultsEduc = Utils.parse2016EducationResults(dataEduc);
 
-        for(int i = 0; i < results.size(); i++) {
-            System.out.println(i + " ------> 5" + results.get(i));
+        for(int i = 0; i < resultsEduc.size(); i++) {
+            System.out.println(i + " ------> " + resultsEduc.get(i));
         }
 
         DataManager main = new DataManager();

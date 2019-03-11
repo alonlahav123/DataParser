@@ -4,9 +4,7 @@ import java.util.List;
 public class DataManager {
     private ArrayList<State> states;
 
-    public  DataManager() {
-
-    }
+    public  DataManager() { }
 
     public ArrayList<State> getStates() {
         return states;
