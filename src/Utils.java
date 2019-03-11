@@ -66,9 +66,9 @@ public class Utils {
         return new EducationResult(d[0], d[1], d[2], d[d.length-4], d[d.length-3], d[d.length-2], d[d.length-1]);
     }
 
-    private static EducationResult getDataPointUnemp(String line) {
+    private static UnemploymentResult getDataPointUnemp(String line) {
         String[] d = line.split(",");
-        return new EducationResult(d[0], d[1], d[2], d[d.length-4], d[d.length-3], d[d.length-2], d[d.length-1]);
+        return new UnemploymentResult(d[0], d[1], d[2], d[d.length-10], d[d.length-9], d[d.length-8], d[d.length-7]);
     }
 
     public static ArrayList<EducationResult> parse2016EducationResults(String data) {
@@ -89,19 +89,19 @@ public class Utils {
         return results;
     }
 
-    public static ArrayList<EducationResult> parse2016UnemploymentResults(String data) {
-        ArrayList<EducationResult> results = new ArrayList<>();
+    public static ArrayList<UnemploymentResult> parse2016UnemploymentResults(String data) {
+        ArrayList<UnemploymentResult> results = new ArrayList<>();
         String[] lines = data.split("\n");
 
         String line;
-        for(int i = 6; i < lines.length-10; i++) {
+        for(int i = 9; i < lines.length; i++) { //i starts and ends where the data starts and ends
             line = lines[i];
 
             while(line.contains("\"")) {
                 line = removeQuotations(line);
             }
 
-            results.add(getDataPointUmemp(line));
+            results.add(getDataPointUnemp(line));
         }
 
         return results;

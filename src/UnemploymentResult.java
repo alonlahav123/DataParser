@@ -1,10 +1,10 @@
 public class UnemploymentResult {
-    double totalLaborForce, employedLabotForce, unemployedLaborForce, unemployedPercent, fips;
+    double totalLaborForce, employedLaborForce, unemployedLaborForce, unemployedPercent, fips;
     String countyName, stateName;
 
-    public UnemploymentResult(String fips, String countyName, String stateName, String totalLaborForce, String employedLabotForce, String unemployedLaborForce, String unemployedPercent) {
+    public UnemploymentResult(String fips, String stateName, String countyName, String totalLaborForce, String employedLaborForce, String unemployedLaborForce, String unemployedPercent) {
         this.totalLaborForce = Double.parseDouble(totalLaborForce);
-        this.employedLabotForce = Double.parseDouble(employedLabotForce);
+        this.employedLaborForce = Double.parseDouble(employedLaborForce);
         this.unemployedLaborForce = Double.parseDouble(unemployedLaborForce);
         this.unemployedPercent = Double.parseDouble(unemployedPercent);
         this.fips = Double.parseDouble(fips);
@@ -21,12 +21,12 @@ public class UnemploymentResult {
         this.totalLaborForce = totalLaborForce;
     }
 
-    public double getEmployedLabotForce() {
-        return employedLabotForce;
+    public double getEmployedLaborForce() {
+        return employedLaborForce;
     }
 
-    public void setEmployedLabotForce(double employedLabotForce) {
-        this.employedLabotForce = employedLabotForce;
+    public void setEmployedLaborForce(double employedLaborForce) {
+        this.employedLaborForce = employedLaborForce;
     }
 
     public double getUnemployedLaborForce() {
@@ -71,14 +71,6 @@ public class UnemploymentResult {
 
     @Override
     public String toString() {
-        return "UnemploymentResult{" +
-                "totalLaborForce=" + totalLaborForce +
-                ", employedLabotForce=" + employedLabotForce +
-                ", unemployedLaborForce=" + unemployedLaborForce +
-                ", unemployedPercent=" + unemployedPercent +
-                ", fips=" + fips +
-                ", countyName='" + countyName + '\'' +
-                ", stateName='" + stateName + '\'' +
-                '}';
+        return fips + ", " + stateName  + ", " + countyName + ", " + totalLaborForce  + ", " + employedLaborForce + ", " + unemployedLaborForce + ", " + unemployedPercent;
     }
 }
