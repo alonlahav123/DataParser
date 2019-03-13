@@ -1,14 +1,17 @@
 public class Employment2016 {
-    private int totalLaborForce;
-    private int employedLaborForce;
-    private int unemployedLaborForce;
+    private double totalLaborForce;
+    private double employedLaborForce;
+    private double unemployedLaborForce;
     private double unemployedPercent;
 
-    public Employment2016() {
-
+    public Employment2016(double totalLaborForce, double employedLaborForce, double unemployedLaborForce, double unemployedPercent) {
+        this.totalLaborForce = totalLaborForce;
+        this.employedLaborForce = employedLaborForce;
+        this.unemployedLaborForce = unemployedLaborForce;
+        this.unemployedPercent = unemployedPercent;
     }
 
-    public int getTotalLaborForce() {
+    public double getTotalLaborForce() {
         return totalLaborForce;
     }
 
@@ -16,7 +19,7 @@ public class Employment2016 {
         this.totalLaborForce = totalLaborForce;
     }
 
-    public int getEmployedLaborForce() {
+    public double getEmployedLaborForce() {
         return employedLaborForce;
     }
 
@@ -24,7 +27,7 @@ public class Employment2016 {
         this.employedLaborForce = employedLaborForce;
     }
 
-    public int getUnemployedLaborForce() {
+    public double getUnemployedLaborForce() {
         return unemployedLaborForce;
     }
 

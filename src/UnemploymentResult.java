@@ -1,6 +1,6 @@
 public class UnemploymentResult {
     double totalLaborForce, employedLaborForce, unemployedLaborForce, unemployedPercent, fips;
-    String countyName, stateName;
+    String countyName, state_abbr;
 
     public UnemploymentResult(String fips, String stateName, String countyName, String totalLaborForce, String employedLaborForce, String unemployedLaborForce, String unemployedPercent) {
         this.totalLaborForce = Double.parseDouble(totalLaborForce);
@@ -9,7 +9,7 @@ public class UnemploymentResult {
         this.unemployedPercent = Double.parseDouble(unemployedPercent);
         this.fips = Double.parseDouble(fips);
         this.countyName = countyName;
-        this.stateName = stateName;
+        this.state_abbr = stateName;
     }
 
 
@@ -61,16 +61,16 @@ public class UnemploymentResult {
         this.countyName = countyName;
     }
 
-    public String getStateName() {
-        return stateName;
+    public String getState_abbr() {
+        return state_abbr;
     }
 
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
+    public void setState_abbr(String state_abbr) {
+        this.state_abbr = state_abbr;
     }
 
     @Override
     public String toString() {
-        return fips + ", " + stateName  + ", " + countyName + ", " + totalLaborForce  + ", " + employedLaborForce + ", " + unemployedLaborForce + ", " + unemployedPercent;
+        return fips + ", " + state_abbr + ", " + countyName + ", " + totalLaborForce  + ", " + employedLaborForce + ", " + unemployedLaborForce + ", " + unemployedPercent;
     }
 }

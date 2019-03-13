@@ -1,14 +1,13 @@
 public class County {
     private String name;
-    private int fips;
+    private double fips;
     private Election2016 vote2016;
     private Education2016 educ2016;
     private Employment2016 employ2016;
 
-    public County(Election2016 election, Education2016 education, Employment2016 employment) {
-        vote2016 = election;
-        educ2016 = education;
-        employ2016 = employment;
+    public County(String name, double fips) {
+        this.name = name;
+        this.fips = fips;
     }
 
     public String getName() {
@@ -19,8 +18,23 @@ public class County {
         this.name = name;
     }
 
-    public int getFips() {
+    public double getFips() {
         return fips;
+    }
+
+    public void setData(ElectionResult electionResult) {
+        Election2016 elec = new Election2016(electionResult.getVotes_dem(), electionResult.getVotes_gop(), electionResult.getTotal_votes());
+        vote2016 = elec;
+    }
+
+    public void setData(EducationResult educationResult) {
+        Education2016 educ = new Education2016(educationResult.getNoHS(), educationResult.getOnlyHS(), educationResult.getSomeCollege(), educationResult.getBachOrHigher());
+        educ2016 = educ;
+    }
+
+    public void setData(UnemploymentResult unemploymentResult) {
+        Employment2016 employ = new Employment2016(unemploymentResult.getTotalLaborForce(), unemploymentResult.getEmployedLaborForce(), unemploymentResult.getUnemployedLaborForce(), unemploymentResult.getUnemployedPercent());
+        employ2016 = employ;
     }
 
     public void setFips(int fips) {

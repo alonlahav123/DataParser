@@ -3,8 +3,10 @@ public class Election2016 {
     private double gopVotes;
     private double totalVotes;
 
-    public Election2016() {
-
+    public Election2016(double demvotes, double gopVotes, double totalVotes) {
+        this.demvotes = demvotes;
+        this.gopVotes = gopVotes;
+        this.totalVotes = totalVotes;
     }
 
     public double getDemvotes() {

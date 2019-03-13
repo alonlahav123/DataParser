@@ -17,11 +17,11 @@ public class Main {
         ArrayList<EducationResult> resultsEduc = Utils.parse2016EducationResults(dataEduc);
         ArrayList<UnemploymentResult> resultsUnemp = Utils.parse2016UnemploymentResults(dataUnemp);
 
-        for(int i = 0; i < resultsEduc.size(); i++) {
-            System.out.println(i + " ------> " + resultsEduc.get(i));
+        for(int i = 0; i < resultsEduc.size()-8; i++) {
+            //System.out.println(i + " ------> " + resultsUnemp.get(i));
         }
 
-        DataManager main = new DataManager();
+        DataManager main = new DataManager(resultsElec, resultsEduc, resultsUnemp);
 
 
     }
