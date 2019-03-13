@@ -8,6 +8,7 @@ public class County {
     public County(String name, double fips) {
         this.name = name;
         this.fips = fips;
+        //System.out.println("     ---> " + name);
     }
 
     public String getName() {
@@ -22,17 +23,17 @@ public class County {
         return fips;
     }
 
-    public void setData(ElectionResult electionResult) {
+    public void setDataElec(ElectionResult electionResult) {
         Election2016 elec = new Election2016(electionResult.getVotes_dem(), electionResult.getVotes_gop(), electionResult.getTotal_votes());
         vote2016 = elec;
     }
 
-    public void setData(EducationResult educationResult) {
+    public void setDataEduc(EducationResult educationResult) {
         Education2016 educ = new Education2016(educationResult.getNoHS(), educationResult.getOnlyHS(), educationResult.getSomeCollege(), educationResult.getBachOrHigher());
         educ2016 = educ;
     }
 
-    public void setData(UnemploymentResult unemploymentResult) {
+    public void setDataEmploy(UnemploymentResult unemploymentResult) {
         Employment2016 employ = new Employment2016(unemploymentResult.getTotalLaborForce(), unemploymentResult.getEmployedLaborForce(), unemploymentResult.getUnemployedLaborForce(), unemploymentResult.getUnemployedPercent());
         employ2016 = employ;
     }

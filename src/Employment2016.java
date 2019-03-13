@@ -9,6 +9,7 @@ public class Employment2016 {
         this.employedLaborForce = employedLaborForce;
         this.unemployedLaborForce = unemployedLaborForce;
         this.unemployedPercent = unemployedPercent;
+        System.out.println("employ");
     }
 
     public double getTotalLaborForce() {
@@ -41,5 +42,9 @@ public class Employment2016 {
 
     public void setUnemployedPercent(double unemployedPercent) {
         this.unemployedPercent = unemployedPercent;
+    }
+
+    public String toString() {
+        return "Employment";
     }
 }

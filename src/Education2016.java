@@ -9,6 +9,7 @@ public class Education2016 {
         this.onlyHighSchool = onlyHighSchool;
         this.someCollege = someCollege;
         this.bachelorsOrMore = bachelorsOrMore;
+        System.out.println("educ");
     }
 
     public double getNoHighSchool() {
@@ -41,5 +42,9 @@ public class Education2016 {
 
     public void setBachelorsOrMore(double bachelorsOrMore) {
         this.bachelorsOrMore = bachelorsOrMore;
+    }
+
+    public String toString() {
+        return "Education";
     }
 }

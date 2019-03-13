@@ -5,9 +5,12 @@ public class DataManager {
     private ArrayList<State> states;
 
     public  DataManager(ArrayList<ElectionResult> elecResults, ArrayList<EducationResult> educResults, ArrayList<UnemploymentResult> unempResults) {
-        createAllStates(elecResults, educResults, unempResults);
         states = new ArrayList<>();
+        createAllStates(elecResults, educResults, unempResults);
         addElecData(elecResults);
+        addEducData(educResults);
+        addEmployData(unempResults);
+        System.out.println("Dataset");
     }
 
     private void createAllStates(ArrayList<ElectionResult> elecResults, ArrayList<EducationResult> educResults, ArrayList<UnemploymentResult> unempResults) {
@@ -43,7 +46,7 @@ public class DataManager {
         for(int i = 0; i < elecResults.size(); i++) {
             String state_abb = elecResults.get(i).getState_abbr();
             int index = getStateIndex(state_abb);
-            states.get(index).addCounty(elecResults.get(i));
+            states.get(index).addCountyElec(elecResults.get(i));
 
         }
     }
@@ -53,8 +56,7 @@ public class DataManager {
         for(int i = 0; i < educResults.size(); i++) {
             String state_abb = educResults.get(i).getState_abbr();
             int index = getStateIndex(state_abb);
-            states.get(index).addCounty(educResults.get(i));
-
+            states.get(index).addCountyEduc(educResults.get(i));
         }
     }
 
@@ -63,7 +65,7 @@ public class DataManager {
         for(int i = 0; i < employResults.size(); i++) {
             String state_abb = employResults.get(i).getState_abbr();
             int index = getStateIndex(state_abb);
-            states.get(index).addCounty(employResults.get(i));
+            states.get(index).addCountyEmploy(employResults.get(i));
 
         }
     }
@@ -77,17 +79,6 @@ public class DataManager {
         }
 
         return -1;
-    }
-
-    private boolean recordedState(String state_abb) {
-
-        for(int i = 0; i < states.size(); i++) {
-            if(state_abb.equals( states.get(i).getName() )) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     public ArrayList<State> getStates() {

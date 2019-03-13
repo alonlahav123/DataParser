@@ -23,6 +23,18 @@ public class Main {
 
         DataManager main = new DataManager(resultsElec, resultsEduc, resultsUnemp);
 
+        for(int s = 0; s < main.getStates().size(); s++) {
+            State state = main.getStates().get(s);
+            System.out.println(state.getName());
 
+            for(int c = 0; c < state.getCounties().size(); c++) {
+                County county = state.getCounties().get(c);
+
+                System.out.println("----> " + county.getName());
+                System.out.println("   ----> " + county.getVote2016());
+                System.out.println("   ----> " + county.getEduc2016());
+                System.out.println("   ----> " + county.getEmploy2016());
+            }
+        }
     }
 }

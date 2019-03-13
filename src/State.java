@@ -8,41 +8,43 @@ public class State {
     public State(String name, ArrayList<County> counties) {
         this.name = name;
         this.counties = counties;
+        System.out.println(name);
     }
 
     public State(String name) {
         this.name = name;
+        counties = new ArrayList<>();
+        System.out.println(name);
     }
 
-    public void addCounty(ElectionResult elec) {
+    public void addCountyElec(ElectionResult elec) {
         String countyName = elec.getCounty_name();
 
         if(getCountyIndex(countyName) == -1) {
             createNewCounty(countyName, elec.getCombined_fips());
-        } else {
-            counties.get(getCountyIndex(countyName)).setData(elec);
         }
 
+        counties.get(getCountyIndex(countyName)).setDataElec(elec);
     }
 
-    public void addCounty(EducationResult educ) {
+    public void addCountyEduc(EducationResult educ) {
         String countyName = educ.getState_abbr();
 
         if(getCountyIndex(countyName) == -1) {
             createNewCounty(countyName, educ.getFips());
         } else {
-            counties.get(getCountyIndex(countyName)).setData(educ);
+            counties.get(getCountyIndex(countyName)).setDataEduc(educ);
         }
 
     }
 
-    public void addCounty(UnemploymentResult employ) {
+    public void addCountyEmploy(UnemploymentResult employ) {
         String countyName = employ.getState_abbr();
 
         if(getCountyIndex(countyName) == -1) {
             createNewCounty(countyName, employ.getFips());
         } else {
-            counties.get(getCountyIndex(countyName)).setData(employ);
+            counties.get(getCountyIndex(countyName)).setDataEmploy(employ);
         }
 
     }
@@ -54,6 +56,9 @@ public class State {
 
     private int getCountyIndex(String countyName) {
 
+        if(counties == null) {
+            return -1;
+        }
         for(int i = 0; i < counties.size(); i++) {
             if(countyName.equals(counties.get(i).getName())) {
                 return i;
