@@ -1,7 +1,7 @@
 public class County {
     private String name;
     private double fips;
-    private Election2016 vote2016;
+    private Election2016 elec2016;
     private Education2016 educ2016;
     private Employment2016 employ2016;
 
@@ -9,6 +9,10 @@ public class County {
         this.name = name;
         this.fips = fips;
         //System.out.println("     ---> " + name);
+    }
+
+    public County(double fips) {
+        this.fips = fips;
     }
 
     public String getName() {
@@ -25,7 +29,7 @@ public class County {
 
     public void setDataElec(ElectionResult electionResult) {
         Election2016 elec = new Election2016(electionResult.getVotes_dem(), electionResult.getVotes_gop(), electionResult.getTotal_votes());
-        vote2016 = elec;
+        elec2016 = elec;
     }
 
     public void setDataEduc(EducationResult educationResult) {
@@ -34,7 +38,7 @@ public class County {
     }
 
     public void setDataEmploy(UnemploymentResult unemploymentResult) {
-        Employment2016 employ = new Employment2016(unemploymentResult.getTotalLaborForce(), unemploymentResult.getEmployedLaborForce(), unemploymentResult.getUnemployedLaborForce(), unemploymentResult.getUnemployedPercent());
+        Employment2016 employ = new Employment2016(unemploymentResult.getTotalLaborForce(), unemploymentResult.getEmployedLaborForce(), unemploymentResult.getUnemployed_2016(), unemploymentResult.getUnemployedPercent(), unemploymentResult.getMedian_Household_Income_2016());
         employ2016 = employ;
     }
 
@@ -42,12 +46,12 @@ public class County {
         this.fips = fips;
     }
 
-    public Election2016 getVote2016() {
-        return vote2016;
+    public Election2016 getElec2016() {
+        return elec2016;
     }
 
-    public void setVote2016(Election2016 vote2016) {
-        this.vote2016 = vote2016;
+    public void setElec2016(Election2016 elec2016) {
+        this.elec2016 = elec2016;
     }
 
     public Education2016 getEduc2016() {

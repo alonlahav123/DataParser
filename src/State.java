@@ -8,59 +8,55 @@ public class State {
     public State(String name, ArrayList<County> counties) {
         this.name = name;
         this.counties = counties;
-        System.out.println(name);
     }
 
     public State(String name) {
         this.name = name;
         counties = new ArrayList<>();
-        System.out.println(name);
     }
 
     public void addCountyElec(ElectionResult elec) {
-        String countyName = elec.getCounty_name();
+        double fipNumber = elec.getCombined_fips();
 
-        if(getCountyIndex(countyName) == -1) {
-            createNewCounty(countyName, elec.getCombined_fips());
+        if(getCountyIndex(fipNumber) == -1) {
+            createNewCounty(fipNumber);
         }
 
-        counties.get(getCountyIndex(countyName)).setDataElec(elec);
+        counties.get(getCountyIndex(fipNumber)).setDataElec(elec);
     }
 
     public void addCountyEduc(EducationResult educ) {
-        String countyName = educ.getState_abbr();
+        double fipNumber = educ.getFips();
 
-        if(getCountyIndex(countyName) == -1) {
-            createNewCounty(countyName, educ.getFips());
-        } else {
-            counties.get(getCountyIndex(countyName)).setDataEduc(educ);
+        if(getCountyIndex(fipNumber) == -1) {
+            createNewCounty(fipNumber);
         }
 
+        counties.get(getCountyIndex(fipNumber)).setDataEduc(educ);
     }
 
     public void addCountyEmploy(UnemploymentResult employ) {
-        String countyName = employ.getState_abbr();
+        double fipNumber = employ.getFips();
 
-        if(getCountyIndex(countyName) == -1) {
-            createNewCounty(countyName, employ.getFips());
-        } else {
-            counties.get(getCountyIndex(countyName)).setDataEmploy(employ);
+        if(getCountyIndex(fipNumber) == -1) {
+            createNewCounty(fipNumber);
         }
 
+        counties.get(getCountyIndex(fipNumber)).setDataEmploy(employ);
     }
 
-    private void createNewCounty(String countyName, double fips) {
-        County county = new County(countyName, fips);
+    private void createNewCounty(double fips) {
+        County county = new County(fips);
         counties.add(county);
     }
 
-    private int getCountyIndex(String countyName) {
+    private int getCountyIndex(double fipNumber) {
 
         if(counties == null) {
             return -1;
         }
         for(int i = 0; i < counties.size(); i++) {
-            if(countyName.equals(counties.get(i).getName())) {
+            if(fipNumber == counties.get(i).getFips()) {
                 return i;
             }
         }

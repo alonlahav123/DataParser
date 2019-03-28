@@ -9,7 +9,6 @@ public class Education2016 {
         this.onlyHighSchool = onlyHighSchool;
         this.someCollege = someCollege;
         this.bachelorsOrMore = bachelorsOrMore;
-        System.out.println("educ");
     }
 
     public double getNoHighSchool() {

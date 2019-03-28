@@ -2,12 +2,21 @@ public class Election2016 {
     private double demvotes;
     private double gopVotes;
     private double totalVotes;
+    private double percentTrumpVotes;
 
     public Election2016(double demvotes, double gopVotes, double totalVotes) {
         this.demvotes = demvotes;
         this.gopVotes = gopVotes;
         this.totalVotes = totalVotes;
-        System.out.println("elec");
+        this.percentTrumpVotes = gopVotes/totalVotes;
+    }
+
+    public double getPercentTrumpVotes() {
+        return percentTrumpVotes;
+    }
+
+    public void setPercentTrumpVotes(double percentTrumpVotes) {
+        this.percentTrumpVotes = percentTrumpVotes;
     }
 
     public double getDemvotes() {

@@ -21,6 +21,25 @@ public class Utils {
         return output.toString();
     }
 
+    public static ArrayList<CountyFip> parseCountyFipsResults(String data) {
+        ArrayList<CountyFip> results = new ArrayList<>();
+        String[] lines = data.split("\n");
+
+        String line;
+        for(int i = 1; i < lines.length; i++) {
+            line = lines[i];
+
+            String newdata[] = line.split("\t");
+
+            CountyFip n = new CountyFip(Integer.parseInt(newdata[0]), newdata[1]);
+
+            results.add(n);
+        }
+
+        return results;
+    }
+
+
     public static ArrayList<ElectionResult> parse2016ElectionResults(String data) {
         ArrayList<ElectionResult> results = new ArrayList<>();
         String[] lines = data.split("\n");
@@ -68,7 +87,7 @@ public class Utils {
 
     private static UnemploymentResult getDataPointUnemp(String line) {
         String[] d = line.split(",");
-        return new UnemploymentResult(d[0], d[1], d[2], d[d.length-10], d[d.length-9], d[d.length-8], d[d.length-7]);
+        return new UnemploymentResult(d[0], d[1], d[2], d[d.length-10], d[d.length-9], d[d.length-8], d[d.length-7], d[d.length-2]);
     }
 
     public static ArrayList<EducationResult> parse2016EducationResults(String data) {

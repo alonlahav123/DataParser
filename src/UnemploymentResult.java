@@ -1,17 +1,38 @@
 public class UnemploymentResult {
-    double totalLaborForce, employedLaborForce, unemployedLaborForce, unemployedPercent, fips;
+    double totalLaborForce, employedLaborForce, Unemployed_2016, unemployedPercent, fips, Median_Household_Income_2016;
     String countyName, state_abbr;
 
-    public UnemploymentResult(String fips, String stateName, String countyName, String totalLaborForce, String employedLaborForce, String unemployedLaborForce, String unemployedPercent) {
+    public UnemploymentResult(String fips, String stateName, String countyName, String totalLaborForce, String employedLaborForce, String Unemployed_2016, String unemployedPercent, String Median_Household_Income_2016) {
         this.totalLaborForce = Double.parseDouble(totalLaborForce);
         this.employedLaborForce = Double.parseDouble(employedLaborForce);
-        this.unemployedLaborForce = Double.parseDouble(unemployedLaborForce);
+        this.Unemployed_2016 = Double.parseDouble(Unemployed_2016);
         this.unemployedPercent = Double.parseDouble(unemployedPercent);
         this.fips = Double.parseDouble(fips);
         this.countyName = countyName;
         this.state_abbr = stateName;
+        this.Median_Household_Income_2016 = Double.parseDouble(removeDollarSign(Median_Household_Income_2016));
     }
 
+    private String removeDollarSign(String word) {
+
+        for(int i = 0; i < word.length(); i++) {
+            String letter = word.substring(i, i+1);
+
+            if(letter.equals("$")) {
+                return word.substring(i+1);
+            }
+        }
+
+        return word;
+    }
+
+    public double getMedian_Household_Income_2016() {
+        return Median_Household_Income_2016;
+    }
+
+    public void setMedian_Household_Income_2016(double median_Household_Income_2016) {
+        Median_Household_Income_2016 = median_Household_Income_2016;
+    }
 
     public double getTotalLaborForce() {
         return totalLaborForce;
@@ -29,12 +50,12 @@ public class UnemploymentResult {
         this.employedLaborForce = employedLaborForce;
     }
 
-    public double getUnemployedLaborForce() {
-        return unemployedLaborForce;
+    public double getUnemployed_2016() {
+        return Unemployed_2016;
     }
 
-    public void setUnemployedLaborForce(double unemployedLaborForce) {
-        this.unemployedLaborForce = unemployedLaborForce;
+    public void setUnemployed_2016(double Unemployed_2016) {
+        this.Unemployed_2016 = Unemployed_2016;
     }
 
     public double getUnemployedPercent() {
@@ -71,6 +92,6 @@ public class UnemploymentResult {
 
     @Override
     public String toString() {
-        return fips + ", " + state_abbr + ", " + countyName + ", " + totalLaborForce  + ", " + employedLaborForce + ", " + unemployedLaborForce + ", " + unemployedPercent;
+        return fips + ", " + state_abbr + ", " + countyName + ", " + totalLaborForce  + ", " + employedLaborForce + ", " + Unemployed_2016 + ", " + unemployedPercent + ", " + Median_Household_Income_2016;
     }
 }
