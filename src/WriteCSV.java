@@ -18,7 +18,7 @@ public class WriteCSV {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
 
-            pw.println(county.getFips() + "," +  county.getName() + ","+ employ.getMedian_Household_Income_2016() + "," + employ.getUnemployedPercent() + "," + elec.getPercentTrumpVotes());
+            pw.println(county.getFips() + "," +  county.getName() + ","+ employ.getMedian_Household_Income_2016() + "," + (employ.getUnemployedPercent()/100) + "," + elec.getPercentTrumpVotes());
             pw.flush();
             pw.close();
         } catch (Exception E) {
